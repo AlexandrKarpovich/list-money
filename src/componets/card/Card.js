@@ -4,11 +4,11 @@ import './Card.css';
 export default function Card() {
 
   // const [count, setCount] = React.useState(0);
-  const [name, NameChange] = useState(1);
-  const [nunber, numberChange] = useState(1);
-  const [month, monthChange] = useState(1);
-  const [day, dayChange] = useState(1);
-  const [ccv, ccvChange] = useState(1);
+  const [nunber, numberChange] = useState(),
+        [name, nameChange] = useState('name'),
+        [month, monthChange] = useState(),
+        [day, dayChange] = useState(0),
+        [ccv, ccvChange] = useState(0);
   
   
   
@@ -32,7 +32,6 @@ export default function Card() {
             </div>
             <div className="row">
               <div className="column">
-                <p className="credit__card-number">Number</p>
                   <p className="credit__card-number">{nunber}</p>
                   <span className="credit__ccv">{ccv}</span>
               </div>
@@ -53,27 +52,44 @@ export default function Card() {
       <div className="small-5 columns end">
           <div className="callout margin-top50">
             <label>NAME
-            <input type="text" />
-            {/* <input type="text" onChange={this.nameChange.bind(this)} /> */}
+              <input
+                  type="text"
+                  maxLength="16"
+                  onChange={ e => nameChange(e.target.value)}
+              />
             </label>
             <label>NUMBER
-              <input type="text" maxLength="16" onChange={numberChange.bind(nunber)}/>
+              <input
+                  type="text"
+                  maxLength="16"
+                  onChange={ e => numberChange(e.target.value)}
+              />
             </label>
             <div className="row">
               <label className="column">EXPIRATION DATE</label>
               <div className="small-4 columns">
-                <input type="text" />
-                {/* <input type="text" maxLength="2" onChange={this.monthChange.bind(this)} /> */}
+                <input
+                    type="number"
+                    maxLength="16"
+                    onChange={ e => monthChange(e.target.value)}
+                />
               </div>
               <div className="small-4 columns end">
-                <input type="text" />
-                {/* <input type="text" maxLength="2" onChange={this.dayChange.bind(this)} /> */}
+                <input
+                    type="number"
+                    maxLength="16"
+                    onChange={ e => dayChange(e.target.value)}
+                />
               </div>
             </div>
             <div className="row">
               <div className="small-4 column">
                 <label>CCV
-                {/* <input type="text" maxLength="3" onChange={this.ccvChange.bind(this)} /> */}
+                  <input
+                      type="number"
+                      maxLength="16"
+                      onChange={ e => ccvChange(e.target.value)}
+                  />
                 </label>
               </div>
             </div>
